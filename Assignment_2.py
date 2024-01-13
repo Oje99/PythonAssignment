@@ -3,17 +3,17 @@ import time
 
 API_REQUEST_DELAY = 1
 
-def get_api_fact():
+def get_random_fact():
 
     api_url = "http://dog-api.kinduff.com/api/facts"
 
     try:
         response = requests.get(api_url)
         response.raise_for_status()
-        dog_api_fact = response.json()
+        dog_fact_data = response.json()
 
-        if 'facts' in dog_api_fact and dog_api_fact['facts']:
-            random_fact = dog_api_fact['facts'][0]
+        if 'facts' in dog_fact_data and dog_fact_data['facts']:
+            random_fact = dog_fact_data['facts'][0]
             return random_fact
         else:
             print("Missing facts in the API response")
@@ -35,7 +35,7 @@ def show_random_fact(num_facts):
     for _ in range(num_facts):
 
         print("\nFinding a dog fact...")
-        random_fact = get_api_fact()
+        random_fact = get_random_fact()
 
         if random_fact:
             print("Random dog fact:")
@@ -52,9 +52,9 @@ def main():
             num_facts = int(input("Please enter the number of dog facts you would like to see (max 10)"))
 
             if 0 < num_facts <= 10:
-                show_random_fact()
+                show_random_fact(num_facts)
 
-                response = input("Do you want to see more dog facts? (yes/no)")
+                response = input("Do you want to see more dog facts? (yes/no)").lower()
                 if response == 'yes':
                     continue
                 elif response == 'no':
@@ -68,3 +68,6 @@ def main():
                 print("Please enter a valid number!")
         except ValueError:
             print("That input is invalid. Please input a valid number")
+
+if __name__ == "__main__":
+    main()
