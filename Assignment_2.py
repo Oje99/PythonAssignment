@@ -3,7 +3,7 @@ import time
 
 API_REQUEST_DELAY = 1
 
-def get_random_fact():
+def get_random_dog_fact():
 
     api_url = "http://dog-api.kinduff.com/api/facts"
 
@@ -14,6 +14,33 @@ def get_random_fact():
 
         if 'facts' in dog_fact_data and dog_fact_data['facts']:
             random_fact = dog_fact_data['facts'][0]
+            return random_fact
+        else:
+            print("Missing facts in the API response")
+            return None
+
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error has occurred: {http_err}")
+
+    except requests.exceptions.RequestException as req_err:
+        print(f"Request error has occurred: {req_err}")
+
+    except Exception as err:
+        print(f"Unexpected error has occurred: {err}")
+
+    return None
+
+def get_random_cat_fact():
+
+    api_url = "https://meowfacts.herokuapp.com/"
+
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()
+        cat_fact_data = response.json()
+
+        if 'data' in cat_fact_data and cat_fact_data['data']:
+            random_fact = cat_fact_data['data'][0]
             return random_fact
         else:
             print("Missing facts in the API response")
