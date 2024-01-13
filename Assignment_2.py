@@ -30,3 +30,23 @@ def get_api_fact():
 
     return None
 
+def show_random_fact(num_facts):
+
+    for _ in range(num_facts):
+
+        print("\nFinding a dog fact...")
+        random_fact = get_api_fact()
+
+        if random_fact:
+            print("Random dog fact:")
+            print(random_fact)
+        else:
+            print("Sorry! I have failed to find a dog fact. Please try later.")
+
+        time.sleep(API_REQUEST_DELAY)
+
+def main():
+
+    while True:
+        try:
+            num_facts = int(input("Please enter the number of dog facts you would like to see (max 10)"))
