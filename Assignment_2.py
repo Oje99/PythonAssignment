@@ -83,40 +83,27 @@ def main():
                 print("Sorry I do not have any facts for that, please enter 'dog' or 'cat'")
                 continue
 
-            num_facts = int(input(f"Please enter the number of {animal_type} facts you would like to see (max 10)"))
+            while True:
+                try:
+                    num_facts = int(input(f"Please enter the number of {animal_type} facts you would like to see (max 10)"))
 
-            if 0 < num_facts <= 10:
-                show_random_fact(num_facts, animal_type)
+                    if 0 < num_facts <= 10:
+                        show_random_fact(num_facts, animal_type)
 
-                response = input("Do you want to see more facts? (yes/no)").lower()
-                if response == 'yes':
-                    continue
-                elif response == 'no':
-                    print("Thank you for your time. Have a good day :) ")
-                    break
-                else:
-                    print("Sorry, could you please enter either 'yes' or 'no'.")
-                    continue
-
-            else:
-                print("Please enter a valid number!")
-                num_facts = int(input(f"Please enter the number of {animal_type} facts you would like to see (max 10)"))
-
-                if 0 < num_facts <= 10:
-                    show_random_fact(num_facts, animal_type)
-
-                    response = input("Do you want to see more facts? (yes/no)").lower()
-                    if response == 'yes':
-                        continue
-                    elif response == 'no':
-                        print("Thank you for your time. Have a good day :) ")
-                        break
+                        response = input("Do you want to see more facts? (yes/no)").lower()
+                        if response == 'yes':
+                            break
+                        elif response == 'no':
+                            print("Thank you for your time. Have a good day :) ")
+                            return
+                        else:
+                            print("Sorry, could you please enter either 'yes' or 'no'.")
                     else:
-                        print("Sorry, could you please enter either 'yes' or 'no'.")
-                        continue
-
+                        print("Please enter a valid number!")
+                except ValueError:
+                    print("That input is invalid. Please input a valid number")
         except ValueError:
-            print("That input is invalid. Please input a valid number")
+            print("That input is invalid. Please input a valid animal")
 
 if __name__ == "__main__":
     main()
