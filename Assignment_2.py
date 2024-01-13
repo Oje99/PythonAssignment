@@ -19,3 +19,7 @@ def get_api_fact():
             print("Missing facts in the API response")
             return None
 
+    except Exception as err:
+        print(f"Unexpected error has occurred: {err}")
+
+    return None
