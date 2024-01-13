@@ -19,7 +19,14 @@ def get_api_fact():
             print("Missing facts in the API response")
             return None
 
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error has occurred: {http_err}")
+
+    except requests.exceptions.RequestException as req_err:
+        print(f"Request error has occurred: {req_err}")
+
     except Exception as err:
         print(f"Unexpected error has occurred: {err}")
 
     return None
+
