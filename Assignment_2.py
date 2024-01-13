@@ -50,3 +50,21 @@ def main():
     while True:
         try:
             num_facts = int(input("Please enter the number of dog facts you would like to see (max 10)"))
+
+            if 0 < num_facts <= 10:
+                show_random_fact()
+
+                response = input("Do you want to see more dog facts? (yes/no)")
+                if response == 'yes':
+                    continue
+                elif response == 'no':
+                    print("Thank you for your time. Have a good day :) ")
+                    break
+                else:
+                    print("Sorry, could you please enter either 'yes' or 'no'.")
+                    continue
+
+            else:
+                print("Please enter a valid number!")
+        except ValueError:
+            print("That input is invalid. Please input a valid number")
