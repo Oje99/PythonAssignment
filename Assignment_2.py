@@ -90,11 +90,11 @@ def main():
                     if 0 < num_facts <= 10:
                         show_random_fact(num_facts, animal_type)
 
-                        response = input("Do you want to see more facts? (yes/no)").lower()
+                        response = input("Do you want to see more facts?").lower()
                         if response == 'yes':
                             break
                         elif response == 'no':
-                            print("Thank you for your time. Have a good day :) ")
+                            print("Thank you. Have a good day :) ")
                             return
                         else:
                             print("Sorry, could you please enter either 'yes' or 'no'.")
