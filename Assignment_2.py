@@ -80,7 +80,7 @@ def main():
         try:
             animal_type = input("Do you want a dog or cat fact?").lower()
             if animal_type not in ['dog', 'cat']:
-                print("Sorry I do not have any facts for that, please enter 'dog' or 'cat'")
+                print(f"Sorry I do not have any facts for {animal_type}, please enter 'dog' or 'cat'")
                 continue
 
             while True:
@@ -101,9 +101,9 @@ def main():
                     else:
                         print("Please enter a valid number!")
                 except ValueError:
-                    print("That input is invalid. Please input a valid number")
+                    print("That input is invalid. Please enter a valid (max 10)")
         except ValueError:
-            print("That input is invalid. Please input a valid animal")
+            print("That input is invalid. Please enter either 'dog' or 'cat'")
 
 if __name__ == "__main__":
     main()
