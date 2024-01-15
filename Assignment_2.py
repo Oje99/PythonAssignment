@@ -70,7 +70,7 @@ def show_random_fact(num_facts, animal_type):
             print(f"Random {animal_type.capitalize()} fact:")
             print(random_fact)
         else:
-            print("Sorry! I have failed to find a dog fact. Please try later.")
+            print(f"Sorry! I have failed to find a {animal_type} fact. Please try later.")
 
         time.sleep(API_REQUEST_DELAY)
 
@@ -85,7 +85,7 @@ def main():
 
             while True:
                 try:
-                    num_facts = int(input(f"Please enter the number of {animal_type} facts you would like to see (max 10)"))
+                    num_facts = int(input(f"Please enter the number of {animal_type} facts you would like to see (max 10):"))
 
                     if 0 < num_facts <= 10:
                         show_random_fact(num_facts, animal_type)
