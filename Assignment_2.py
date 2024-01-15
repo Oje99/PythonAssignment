@@ -101,7 +101,7 @@ def main():
                     else:
                         print("Please enter a valid number!")
                 except ValueError:
-                    print("That input is invalid. Please enter a valid (max 10)")
+                    print("That input is invalid. Please enter a valid number (max 10)")
         except ValueError:
             print("That input is invalid. Please enter either 'dog' or 'cat'")
 
