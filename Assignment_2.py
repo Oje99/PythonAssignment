@@ -67,7 +67,7 @@ def show_random_fact(num_facts, animal_type):
         random_fact = get_random_fact()
 
         if random_fact:
-            print(f"Random {animal_type.capitalize()} fact:")
+            print(f"Random {animal_type} fact:")
             print(random_fact)
         else:
             print(f"Sorry! I have failed to find a {animal_type} fact. Please try later.")
